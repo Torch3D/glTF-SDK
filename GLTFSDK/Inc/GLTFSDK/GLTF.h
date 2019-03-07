@@ -16,6 +16,7 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <limits>
 
 namespace Microsoft
 {
@@ -282,20 +283,16 @@ namespace Microsoft
                 {
                     if (lhs.registeredExtensions.size() == rhs.registeredExtensions.size())
                     {
-                        return std::all_of(
-                            lhs.registeredExtensions.begin(),
-                            lhs.registeredExtensions.end(),
-                            [&rhs](const std::pair<const std::type_index, std::unique_ptr<Extension>>& value)
-                        {
-                            auto it = rhs.registeredExtensions.find(value.first);
-
-                            if (it != rhs.registeredExtensions.end())
-                            {
-                                return *it->second == *value.second;
+                        for (const auto& extension : lhs.registeredExtensions) {
+                            auto it = rhs.registeredExtensions.find(extension.first);
+                            if (it != rhs.registeredExtensions.end()) {
+                                if (*it->second != *extension.second) {
+                                    return false;
+                                }
+                            } else {
+                                return false;
                             }
-
-                            return false;
-                        });
+                        }
                     }
 
                     return false;

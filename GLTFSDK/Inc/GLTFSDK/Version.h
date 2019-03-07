@@ -8,6 +8,11 @@
 
 #include <cstdint>
 
+#ifdef major
+#undef major
+#undef minor
+#endif
+
 namespace Microsoft
 {
     namespace glTF

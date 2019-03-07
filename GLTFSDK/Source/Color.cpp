@@ -5,6 +5,8 @@
 
 #include <GLTFSDK/Math.h>
 
+#include <limits>
+
 using namespace Microsoft::glTF;
 
 Color3::Color3(float r, float g, float b) :

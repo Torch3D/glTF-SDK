@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 #include <GLTFSDK/Math.h>
+#include <tuple>
 
 using namespace Microsoft::glTF;
 
