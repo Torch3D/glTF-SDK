@@ -293,6 +293,8 @@ namespace Microsoft
                                 return false;
                             }
                         }
+
+                        return true;
                     }
 
                     return false;
