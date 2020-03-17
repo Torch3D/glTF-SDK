@@ -100,7 +100,7 @@ namespace Microsoft
                     throw GLTFException("ReadAccessorData: Template type T does not match accessor ComponentType");
                 }
 
-                Validation::ValidateAccessor(gltfDocument, accessor);
+                // Validation::ValidateAccessor(gltfDocument, accessor);
 
                 if (accessor.sparse.count > 0U)
                 {
@@ -115,7 +115,7 @@ namespace Microsoft
             {
                 const Buffer& buffer = document.buffers.Get(bufferView.bufferId);
 
-                Validation::ValidateBufferView(bufferView, buffer);
+                // Validation::ValidateBufferView(bufferView, buffer);
 
                 auto count = bufferView.byteLength / sizeof(T);
                 assert(bufferView.byteLength % sizeof(T) == 0);
